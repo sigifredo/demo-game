@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="VelocityMaster"
+config/name="DemoGame"
+config/version="0.01"
 run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
