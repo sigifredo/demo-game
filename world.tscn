@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://d1i8xgfqf11n5"]
+[gd_scene load_steps=3 format=3 uid="uid://d1i8xgfqf11n5"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dbn7o"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_erhso"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="world" type="Node3D"]
+
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)
+mesh = SubResource("PlaneMesh_dbn7o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_erhso")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.439711, 0.132515, -0.88831, 0.396222, 0.858987, 0.324269, 0.806017, -0.494552, 0.3252, -18.3937, 9.69971, 8.95433)
