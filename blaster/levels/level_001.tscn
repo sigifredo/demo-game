@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://je8i2jeqqlkr"]
+[gd_scene load_steps=8 format=3 uid="uid://je8i2jeqqlkr"]
 
 [ext_resource type="MeshLibrary" uid="uid://nvpalevybqcj" path="res://meshes/space_library.tres" id="1_t2ye3"]
+[ext_resource type="PackedScene" uid="uid://ck31sve8xn8tb" path="res://objects/enemy.tscn" id="2_ntqni"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ojahr"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,6 +17,13 @@ tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_306pa"]
 albedo_color = Color(0.27, 0.27, 0.27, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_8frx6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -22, 0, 6, -1, 0, 1, 1, 0, -1, 14, 0, 6, 1, 0, 1, -1, 0, -1, 14, 0, -2, 1, 0, 1, -1, 0, -1, -10, 0, -2, 0, 0, 0, 0, 0, 0, -10, 0, -7),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="level_001" type="Node3D"]
 
@@ -34,10 +42,56 @@ material = SubResource("StandardMaterial3D_306pa")
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 14.5, 9.5)
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="grid_map" type="GridMap" parent="."]
 mesh_library = ExtResource("1_t2ye3")
 cell_size = Vector3(4, 4, 4)
 cell_center_y = false
 data = {
 "cells": PackedInt32Array(65535, 65534, 131072, 65535, 2, 131072, 65531, 65535, 131072, 4, 65535, 131072, 65531, 65534, 131072, 65531, 0, 131072, 65531, 2, 131072, 65532, 65534, 131072, 65532, 2, 131072, 65533, 2, 131072, 65534, 65534, 131072, 65534, 2, 131072, 0, 65534, 131072, 0, 2, 131072, 1, 65534, 131072, 1, 2, 131072, 2, 65534, 131072, 2, 2, 131072, 3, 65534, 131072, 3, 2, 131072, 4, 65534, 131072, 4, 0, 131072, 4, 1, 131072, 4, 2, 131072, 65532, 65535, 131072, 65532, 0, 131072, 65533, 0, 131072, 65534, 0, 131072, 65535, 0, 131072, 0, 0, 131072, 1, 0, 131072, 2, 0, 131072)
 }
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="path" type="Path3D" parent="."]
+curve = SubResource("Curve3D_8frx6")
+
+[node name="road" type="CSGPolygon3D" parent="path"]
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="left_edge" type="CSGPolygon3D" parent="path"]
+polygon = PackedVector2Array(-1.1, 0, -1.1, 0.15, -0.9, 0.15, -0.9, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="right_edge" type="CSGPolygon3D" parent="path"]
+polygon = PackedVector2Array(1.1, 0, 1.1, 0.15, 0.9, 0.15, 0.9, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 0.5
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="enemy" parent="path" instance=ExtResource("2_ntqni")]
+transform = Transform3D(-4.37111e-08, 0, -0.999994, 0, 1, 0, 0.999994, 0, -4.37111e-08, -22, 0, 6)
