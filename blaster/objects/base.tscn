@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci3xl023s24h6"]
+
+[ext_resource type="Script" path="res://scripts/base.gd" id="1_bpljo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ewno"]
+albedo_color = Color(0.44, 0.0484, 0.0484, 1)
+
+[node name="base" type="Node3D" groups=["base"]]
+script = ExtResource("1_bpljo")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+radius = 2.0
+height = 4.0
+sides = 32
+material = SubResource("StandardMaterial3D_4ewno")
+
+[node name="label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+billboard = 1
+text = "X"
+font_size = 450
+outline_size = 100
