@@ -41,7 +41,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_306pa")
 
-[node name="camera" parent="." instance=ExtResource("1_156ek")]
+[node name="camera" parent="." node_paths=PackedStringArray("grid_map") instance=ExtResource("1_156ek")]
+grid_map = NodePath("../grid_map")
 
 [node name="grid_map" type="GridMap" parent="."]
 mesh_library = ExtResource("1_t2ye3")
