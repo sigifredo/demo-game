@@ -12,7 +12,7 @@ extends RigidBody3D
 func _ready():
 	pass
 
-func _process(delta: float):
+func _process(delta: float) -> void:
 	if Input.is_action_pressed('boost'):
 		apply_central_force(basis.y * delta * thrust)
 
@@ -22,11 +22,16 @@ func _process(delta: float):
 	if Input.is_action_pressed('rotate_right'):
 		apply_torque(Vector3(0.0, 0.0, -torque_thrust) * delta)
 
-func _on_body_entered(body: Node):
+func _on_body_entered(body: Node) -> void:
 	if 'Goal' in body.get_groups():
-		print('you win')
+		complete_level()
 	elif 'Hazard' in body.get_groups():
-		print('you fail')
+		crash_sequence()
 
-func crash_sequence():
-	pass
+func crash_sequence() -> void:
+	print('you fail')
+	get_tree().reload_current_scene()
+
+func complete_level() -> void:
+	print('Level completed')
+	get_tree().quit()

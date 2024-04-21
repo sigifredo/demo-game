@@ -33,7 +33,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.944571, 0.328306, 0, -0.328306, 0.944571, -0.00773191, 6.64044, 10.6573)
+transform = Transform3D(1, 0, 0, 0, 0.997401, 0.0720545, 0, -0.0720545, 0.997401, -0.00773191, 2.56948, 8.18407)
 
 [node name="player" parent="." instance=ExtResource("1_586ak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.4, 0)
