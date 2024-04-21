@@ -1,7 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cb3wqhym0n22l"]
 
-[ext_resource type="PackedScene" uid="uid://bsseeiwxcl7d7" path="res://player.tscn" id="1_3s05g"]
+[ext_resource type="PackedScene" uid="uid://bsseeiwxcl7d7" path="res://objects/player.tscn" id="1_3s05g"]
 [ext_resource type="Script" path="res://scripts/landing_pad.gd" id="2_bjdah"]
+[ext_resource type="PackedScene" uid="uid://cq50kjakflek0" path="res://objects/moving_obstacle.tscn" id="3_k10xl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s3kxo"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,9 +24,6 @@ albedo_color = Color(0.132, 0.219267, 0.44, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55sgn"]
 albedo_color = Color(0.117647, 0.27451, 0.172549, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r62iq"]
-albedo_color = Color(0.801129, 0.000574489, 0.815613, 1)
 
 [node name="level_004" type="Node3D"]
 
@@ -62,7 +60,6 @@ material = SubResource("StandardMaterial3D_55sgn")
 script = ExtResource("2_bjdah")
 file_path = "res://levels/level_003.tscn"
 
-[node name="obstacle" type="CSGBox3D" parent="." groups=["Hazard"]]
-transform = Transform3D(7.30336, 0, 0, 0, 1.57055, 0, 0, 0, 2.6896, 0, 5.47481, 0)
-use_collision = true
-material = SubResource("StandardMaterial3D_r62iq")
+[node name="moving_obstacle" parent="." groups=["Hazard"] instance=ExtResource("3_k10xl")]
+destination = Vector3(0, 2, 0)
+duration = 3.0
