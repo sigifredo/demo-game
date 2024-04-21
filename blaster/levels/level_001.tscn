@@ -94,6 +94,26 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
 
+[node name="enemy5" parent="path" instance=ExtResource("2_ntqni")]
+transform = Transform3D(-0.0112949, 0, -0.999906, 0, 1, 0, 0.999906, 0, -0.0112949, -2.00431, 0, 6.40519)
+progress = 20.0
+speed = 15.0
+
+[node name="enemy4" parent="path" instance=ExtResource("2_ntqni")]
+transform = Transform3D(-0.0166661, 0, -0.999837, 0, 1, 0, 0.999837, 0, -0.0166661, -7.00381, 0, 6.33448)
+progress = 15.0
+speed = 15.0
+
+[node name="enemy3" parent="path" instance=ExtResource("2_ntqni")]
+transform = Transform3D(-0.0206487, 0, -0.999769, 0, 1, 0, 0.999769, 0, -0.0206487, -12.003, 0, 6.2408)
+progress = 10.0
+speed = 15.0
+
+[node name="enemy2" parent="path" instance=ExtResource("2_ntqni")]
+transform = Transform3D(-0.0240076, 0, -0.9997, 0, 1, 0, 0.9997, 0, -0.0240076, -17.0018, 0, 6.12903)
+progress = 5.0
+speed = 15.0
+
 [node name="enemy" parent="path" instance=ExtResource("2_ntqni")]
 transform = Transform3D(-4.37111e-08, 0, -0.999994, 0, 1, 0, 0.999994, 0, -4.37111e-08, -22, 0, 6)
 speed = 15.0
