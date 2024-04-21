@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	ray_cast.target_position = project_local_ray_normal(mouse_position) * 40.0
 	ray_cast.force_raycast_update()
 
-	if ray_cast.is_colliding():
+	if Input.is_action_pressed("click") and ray_cast.is_colliding():
 		var collider = ray_cast.get_collider()
 
 		if collider is GridMap:
