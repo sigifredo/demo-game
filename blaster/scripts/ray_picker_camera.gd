@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var mouse_position: Vector2 = get_viewport().get_mouse_position()
-	ray_cast.target_position = project_local_ray_normal(mouse_position) * 20.0
+	ray_cast.target_position = project_local_ray_normal(mouse_position) * 40.0
 	ray_cast.force_raycast_update()
 
 	if ray_cast.is_colliding():
@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 		if collider is GridMap:
 			var collision_point = ray_cast.get_collision_point()
 			var cell = grid_map.local_to_map(collision_point)
-			grid_map.set_cell_item(cell, 1)
+
+			if grid_map.get_cell_item(cell) == 0:
+				grid_map.set_cell_item(cell, 1)
 
 		printt(collider, ray_cast.get_collision_point())
