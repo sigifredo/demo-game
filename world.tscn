@@ -38,7 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 0.944571, 0.328306, 0, -0.328306, 0.944571, 
 [node name="player" parent="." instance=ExtResource("1_586ak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.4, 0)
 
-[node name="Floor" type="CSGBox3D" parent="."]
+[node name="Floor" type="CSGBox3D" parent="." groups=["Hazard"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 use_collision = true
 size = Vector3(30, 8, 5)
@@ -50,7 +50,7 @@ use_collision = true
 size = Vector3(2, 0.4, 2)
 material = SubResource("StandardMaterial3D_4g2n6")
 
-[node name="LandingPad" type="CSGBox3D" parent="."]
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.2, 0)
 use_collision = true
 size = Vector3(2, 0.4, 2)

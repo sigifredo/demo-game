@@ -14,5 +14,7 @@ func _process(delta: float):
 		apply_torque(Vector3(0.0, 0.0, -100.0) * delta)
 
 func _on_body_entered(body: Node):
-	if body.name == 'LandingPad':
+	if 'Goal' in body.get_groups():
 		print(body.name)
+	elif 'Hazard' in body.get_groups():
+		print('you fail')
