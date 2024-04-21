@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bophfiu7vxec1"]
+[gd_scene load_steps=7 format=3 uid="uid://bophfiu7vxec1"]
 
 [ext_resource type="PackedScene" uid="uid://bgoqqxxarguuv" path="res://objects/player.tscn" id="1_3kqtu"]
+[ext_resource type="Texture2D" uid="uid://txjr86edoin2" path="res://textures/Dark/texture_04.png" id="1_l6fjp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lqmg1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -13,6 +14,11 @@ sky_material = SubResource("ProceduralSkyMaterial_lqmg1")
 background_mode = 2
 sky = SubResource("Sky_d2l75")
 tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ncvn"]
+albedo_texture = ExtResource("1_l6fjp")
+uv1_triplanar = true
+uv2_triplanar = true
 
 [node name="SandBox" type="Node3D"]
 
@@ -27,6 +33,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(64, 1, 64)
+material = SubResource("StandardMaterial3D_2ncvn")
 
 [node name="Player" parent="." instance=ExtResource("1_3kqtu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
