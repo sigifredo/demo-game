@@ -7,6 +7,7 @@ extends RigidBody3D
 @export var torque_thrust: float = 100.0
 
 # private variables
+var is_transitioning: bool = false
 
 func _ready():
 	pass
@@ -22,15 +23,22 @@ func _process(delta: float) -> void:
 		apply_torque(Vector3(0.0, 0.0, -torque_thrust) * delta)
 
 func _on_body_entered(body: Node) -> void:
-	if 'Goal' in body.get_groups():
-		print(body.file_path)
-		complete_level(body.file_path)
-	elif 'Hazard' in body.get_groups():
-		crash_sequence()
+	if not is_transitioning:
+		if 'Goal' in body.get_groups():
+			print(body.file_path)
+			complete_level(body.file_path)
+		elif 'Hazard' in body.get_groups():
+			crash_sequence()
 
 func crash_sequence() -> void:
-	get_tree().reload_current_scene()
+	set_process(false)
+	is_transitioning = true
+	var tween = create_tween()
+	tween.tween_interval(1)
+	tween.tween_callback(get_tree().reload_current_scene)
 
 func complete_level(next_level_file: String) -> void:
 	print('Level completed')
-	get_tree().change_scene_to_file(next_level_file)
+	var tween = create_tween()
+	tween.tween_interval(1)
+	tween.tween_callback(get_tree().change_scene_to_file.bind(next_level_file))

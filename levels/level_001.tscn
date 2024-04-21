@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://brax73548cqjw"]
 
 [ext_resource type="PackedScene" uid="uid://bsseeiwxcl7d7" path="res://player.tscn" id="1_opclj"]
-[ext_resource type="Script" path="res://levels/LandingPad.gd" id="2_8ekia"]
+[ext_resource type="Script" path="res://scripts/landing_pad.gd" id="2_8ekia"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s3kxo"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -39,19 +39,19 @@ transform = Transform3D(1, 0, 0, 0, 0.997401, 0.0720545, 0, -0.0720545, 0.997401
 [node name="player" parent="." instance=ExtResource("1_opclj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.4, 0)
 
-[node name="Floor" type="CSGBox3D" parent="." groups=["Hazard"]]
+[node name="floor" type="CSGBox3D" parent="." groups=["Hazard"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 use_collision = true
 size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_ujke6")
 
-[node name="LaunchPad" type="CSGBox3D" parent="."]
+[node name="launch_pad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.2, 0)
 use_collision = true
 size = Vector3(2, 0.4, 2)
 material = SubResource("StandardMaterial3D_4g2n6")
 
-[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
+[node name="landing_pad" type="CSGBox3D" parent="." groups=["Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.2, 0)
 use_collision = true
 size = Vector3(2, 0.4, 2)
