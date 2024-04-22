@@ -7,9 +7,3 @@ func _physics_process(delta: float) -> void:
 
 	global_transform = global_transform.interpolate_with(get_parent().global_transform, weight)
 	global_position = get_parent().global_position
-
-func _ready() -> void:
-	pass # Replace with function body.
-
-func _process(delta: float) -> void:
-	pass
