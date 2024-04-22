@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED: float = 5.0
-const JUMP_VELOCITY: float = 4.5
+@export var jump_height: float = 1.0
 @onready var camera_pivot: Node3D = $camera_pivot
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = sqrt(jump_height * 2.0 * gravity)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
