@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bophfiu7vxec1"]
+[gd_scene load_steps=13 format=3 uid="uid://bophfiu7vxec1"]
 
 [ext_resource type="PackedScene" uid="uid://bgoqqxxarguuv" path="res://objects/player.tscn" id="1_3kqtu"]
 [ext_resource type="Texture2D" uid="uid://txjr86edoin2" path="res://textures/Dark/texture_04.png" id="1_l6fjp"]
 [ext_resource type="PackedScene" uid="uid://chhq41oplka1w" path="res://objects/labyrint.tscn" id="3_ir4rf"]
+[ext_resource type="Texture2D" uid="uid://xv86m2dcwiwr" path="res://textures/Orange/texture_09.png" id="4_1r7qv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lqmg1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,9 +22,18 @@ albedo_texture = ExtResource("1_l6fjp")
 uv1_triplanar = true
 uv2_triplanar = true
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pfqo7"]
+bounce = 1.0
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_dwqrp"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pthdv"]
+albedo_texture = ExtResource("4_1r7qv")
+uv1_triplanar = true
+uv2_triplanar = true
+
 [sub_resource type="SphereMesh" id="SphereMesh_6lpfy"]
+material = SubResource("StandardMaterial3D_pthdv")
 
 [node name="SandBox" type="Node3D"]
 
@@ -43,14 +53,18 @@ material = SubResource("StandardMaterial3D_2ncvn")
 
 [node name="Player" parent="." instance=ExtResource("1_3kqtu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_mask = 1
 
 [node name="labyrint" parent="." instance=ExtResource("3_ir4rf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3)
-collision_layer = 2
+collision_layer = 4
+collision_mask = 3
 mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_pfqo7")
+freeze_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_dwqrp")
