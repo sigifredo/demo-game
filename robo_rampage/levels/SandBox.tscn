@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bophfiu7vxec1"]
+[gd_scene load_steps=10 format=3 uid="uid://bophfiu7vxec1"]
 
-[ext_resource type="PackedScene" uid="uid://bgoqqxxarguuv" path="res://objects/player.tscn" id="1_3kqtu"]
 [ext_resource type="Texture2D" uid="uid://txjr86edoin2" path="res://textures/Dark/texture_04.png" id="1_l6fjp"]
+[ext_resource type="PackedScene" uid="uid://d2g78tpqbyf5g" path="res://libs/kny/objects/enemy.tscn" id="3_fdbyh"]
 [ext_resource type="PackedScene" uid="uid://chhq41oplka1w" path="res://objects/labyrint.tscn" id="3_ir4rf"]
-[ext_resource type="Texture2D" uid="uid://xv86m2dcwiwr" path="res://textures/Orange/texture_09.png" id="4_1r7qv"]
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://libs/kny/objects/player.tscn" id="4_afccc"]
+[ext_resource type="PackedScene" uid="uid://jbkk31b0jckc" path="res://objects/pelota.tscn" id="5_vcp0y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lqmg1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -13,7 +14,8 @@ ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 sky_material = SubResource("ProceduralSkyMaterial_lqmg1")
 
 [sub_resource type="Environment" id="Environment_e0wkj"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.360784, 0.392157, 0.462745, 1)
 sky = SubResource("Sky_d2l75")
 tonemap_mode = 2
 
@@ -21,19 +23,6 @@ tonemap_mode = 2
 albedo_texture = ExtResource("1_l6fjp")
 uv1_triplanar = true
 uv2_triplanar = true
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pfqo7"]
-bounce = 0.8
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_dwqrp"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pthdv"]
-albedo_texture = ExtResource("4_1r7qv")
-uv1_triplanar = true
-uv2_triplanar = true
-
-[sub_resource type="SphereMesh" id="SphereMesh_6lpfy"]
-material = SubResource("StandardMaterial3D_pthdv")
 
 [node name="SandBox" type="Node3D"]
 
@@ -51,23 +40,38 @@ use_collision = true
 size = Vector3(65, 1, 65)
 material = SubResource("StandardMaterial3D_2ncvn")
 
-[node name="Player" parent="." instance=ExtResource("1_3kqtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-collision_mask = 1
-
 [node name="labyrint" parent="." instance=ExtResource("3_ir4rf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -3)
-collision_layer = 4
-collision_mask = 3
-mass = 0.1
-physics_material_override = SubResource("PhysicsMaterial_pfqo7")
-freeze_mode = 1
+[node name="Player" parent="." instance=ExtResource("4_afccc")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("SphereShape3D_dwqrp")
+[node name="enemy-flying" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_fdbyh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 2.26267e-08, 0.965926, -0.258819, 8.44439e-08, -0.258819, -0.965926, -2.5, 3, 15.5)
+player = NodePath("../Player")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("SphereMesh_6lpfy")
+[node name="pelota_001" parent="." instance=ExtResource("5_vcp0y")]
+collision_mask = 7
+
+[node name="pelota_002" parent="." instance=ExtResource("5_vcp0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6.43072, -0.96759)
+collision_mask = 7
+
+[node name="pelota_003" parent="." instance=ExtResource("5_vcp0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.03072, -0.96759)
+collision_mask = 7
+
+[node name="pelota_004" parent="." instance=ExtResource("5_vcp0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 7.03072, -1.96759)
+collision_mask = 7
+
+[node name="pelota_005" parent="." instance=ExtResource("5_vcp0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7.03072, 0.03241)
+collision_mask = 7
+
+[node name="pelota_006" parent="." instance=ExtResource("5_vcp0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.06144, -3.93518)
+collision_mask = 7
+
+[node name="pelota_007" parent="." instance=ExtResource("5_vcp0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 7.03072, -1.96759)
+collision_mask = 7

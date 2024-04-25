@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://8ggihh27mlrr" path="res://libs/kny/sprites/blob_shadow.png" id="2_b0fo8"]
 [ext_resource type="Resource" uid="uid://c56y8pqoyk15f" path="res://libs/kny/weapons/blaster.tres" id="3_kr4p8"]
 [ext_resource type="SpriteFrames" uid="uid://dbv3sy5qjatnl" path="res://libs/kny/sprites/burst_animation.tres" id="4_m6ukc"]
-[ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://libs/kny/sounds/walking.ogg" id="5_ics1s"]
+[ext_resource type="AudioStream" uid="uid://bwrwuy7ifpwjo" path="res://libs/kny/sounds/walking.ogg" id="5_ics1s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
 radius = 0.3
-height = 1.0
+height = 1.7
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -17,13 +17,14 @@ script = ExtResource("1_ffboj")
 weapons = Array[Resource("res://libs/kny/scripts/weapon.gd")]([ExtResource("3_kr4p8"), ExtResource("2_6epbw")])
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_gdq8c")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cull_mask = 1048573
 current = true
 fov = 80.0
@@ -40,7 +41,7 @@ stretch = true
 transparent_bg = true
 handle_input_locally = false
 msaa_3d = 1
-size = Vector2i(1280, 720)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="CameraItem" type="Camera3D" parent="Head/Camera/SubViewportContainer/SubViewport"]

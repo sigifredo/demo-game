@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dd3oln1ucgqpd"
-path="res://.godot/imported/blaster-repeater.glb-5f1125651aecb8bf54890e793b8c6da4.scn"
+path="res://.godot/imported/blaster-repeater.glb-8509446b167a3a02d5b3715b36275bb8.scn"
 
 [deps]
 
-source_file="res://models/blaster-repeater.glb"
-dest_files=["res://.godot/imported/blaster-repeater.glb-5f1125651aecb8bf54890e793b8c6da4.scn"]
+source_file="res://libs/kny/models/blaster-repeater.glb"
+dest_files=["res://.godot/imported/blaster-repeater.glb-8509446b167a3a02d5b3715b36275bb8.scn"]
 
 [params]
 

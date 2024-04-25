@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c743irj356lax"
-path="res://.godot/imported/wall-high.glb-74f2e81af43ef5254fe14637810326a5.scn"
+path="res://.godot/imported/wall-high.glb-fb4ff68589574e4f47fb6729d16f5a5b.scn"
 
 [deps]
 
-source_file="res://models/wall-high.glb"
-dest_files=["res://.godot/imported/wall-high.glb-74f2e81af43ef5254fe14637810326a5.scn"]
+source_file="res://libs/kny/models/wall-high.glb"
+dest_files=["res://.godot/imported/wall-high.glb-fb4ff68589574e4f47fb6729d16f5a5b.scn"]
 
 [params]
 
