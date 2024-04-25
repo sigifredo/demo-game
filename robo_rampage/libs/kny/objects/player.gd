@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 @export_subgroup("Properties")
-@export var movement_speed = 5
-@export var jump_strength = 8
+@export var movement_speed: float = 5.0
+@export var jump_strength: float = 7.0
 ## Cuando el personaje cae, esta es la distancia a la que se reinicia le juego
 @export var y_restart: float = -10.0
 

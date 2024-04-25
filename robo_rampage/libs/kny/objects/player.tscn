@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl2ed4gkybggf"]
+[gd_scene load_steps=10 format=3 uid="uid://dl2ed4gkybggf"]
 
 [ext_resource type="Script" path="res://libs/kny/objects/player.gd" id="1_ffboj"]
 [ext_resource type="Resource" uid="uid://cu2gtxlcmbb34" path="res://libs/kny/weapons/blaster-repeater.tres" id="2_6epbw"]
@@ -6,12 +6,14 @@
 [ext_resource type="Resource" uid="uid://c56y8pqoyk15f" path="res://libs/kny/weapons/blaster.tres" id="3_kr4p8"]
 [ext_resource type="SpriteFrames" uid="uid://dbv3sy5qjatnl" path="res://libs/kny/sprites/burst_animation.tres" id="4_m6ukc"]
 [ext_resource type="AudioStream" uid="uid://bwrwuy7ifpwjo" path="res://libs/kny/sounds/walking.ogg" id="5_ics1s"]
+[ext_resource type="FontFile" uid="uid://biqtga8moh7ah" path="res://libs/kny/fonts/lilita_one_regular.ttf" id="8_l7r8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdq8c"]
 radius = 0.3
-height = 1.0
+height = 1.65
 
 [sub_resource type="LabelSettings" id="LabelSettings_ywdw1"]
+font = ExtResource("8_l7r8r")
 font_size = 36
 outline_size = 12
 outline_color = Color(0, 0, 0, 0.470588)
@@ -26,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 shape = SubResource("CapsuleShape3D_gdq8c")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 cull_mask = 1048573
@@ -96,10 +98,10 @@ scale = Vector2(0.35, 0.35)
 pivot_offset = Vector2(64, 64)
 
 [node name="Health" type="Label" parent="HUD"]
-offset_left = 73.0
-offset_top = 557.0
-offset_right = 167.0
-offset_bottom = 607.0
+offset_left = 65.0
+offset_top = 568.0
+offset_right = 155.0
+offset_bottom = 613.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "100%"
