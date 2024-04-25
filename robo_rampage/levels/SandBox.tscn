@@ -50,6 +50,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 2.26267e-08, 0.965926, -0.258819, 8
 player = NodePath("../Player")
 
 [node name="pelota_001" parent="." instance=ExtResource("5_vcp0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -2)
 collision_mask = 7
 
 [node name="pelota_002" parent="." instance=ExtResource("5_vcp0y")]
